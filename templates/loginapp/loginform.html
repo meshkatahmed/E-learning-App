@@ -3,11 +3,11 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Registration Form</title>
+    <title>Login Form</title>
   </head>
   <body>
-    {% if registered %}
-      <p>Congratulations! Registration successful.</p>
+    {% if user %}
+      <p>Hello, {{user.first_name}} {{user.last_name}}. You are logged in.</p>
     {% else %}
       <form method="POST">
         {{form|crispy}}
