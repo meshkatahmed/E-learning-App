@@ -1,0 +1,22 @@
+{% load crispy_forms_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Registration Form</title>
+  </head>
+  <body>
+    {% if registered %}
+      <h2>Congratulations! registered successfully.</h2>
+      <p>Log in <a href="{% url 'login_app:login' %}">here</a></p>
+    {% else %}
+      <form enctype='multipart/form-data' method="POST">
+        {{userform|crispy}}
+        {{userprofileform|crispy}}
+        {% csrf_token %}
+        <button type="submit" name="submit">Register</button>
+      </form>
+    {% endif %}
+  </body>
+</html>

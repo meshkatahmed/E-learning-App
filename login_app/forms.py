@@ -9,8 +9,6 @@ class UserForm(UserCreationForm):
         model = User
         fields = ['username','first_name','last_name','email']
 class UserProfileForm(forms.ModelForm):
-    is_teacher = forms.BooleanField(required=False)
-    is_student = forms.BooleanField(required=False)
     class Meta:
         model = UserProfile
-        fields = ['is_teacher','is_student']
+        fields = ['profile_pic','status']
