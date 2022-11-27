@@ -1,21 +1,16 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 {% load static %}
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Homepage</title>
-  </head>
-  <body>
-    {% if user.is_authenticated %}
-      <p>Hi! I'm {{userinfo.username}}</p>
-      <p>My name is {{userinfo.first_name}} {{userinfo.last_name}}</p>
-      <p>My e-mail is {{userinfo.email}}</p>
-      <p>I am a {{userprofileinfo.status}}</p>
-      <img src="{% static '{{userprofileinfo.profile_pic}}'%}" alt="None" width="500px">
-    {% else %}
-      <p>{{message}}</p>
-      <p>Don't have an account? <a href="{% url 'login_app:register'%}">register</a></p>
-      <p>Have an account? <a href="{% url 'login_app:login' %}">login</a></p>
-    {% endif %}
-  </body>
-</html>
+{% block titleblock %}Homepage{% endblock %}
+{% block bodyblock %}
+  {% if user.is_authenticated %}
+    <p>Hi! I'm {{userinfo.username}}</p>
+    <p>My name is {{userinfo.first_name}} {{userinfo.last_name}}</p>
+    <p>My e-mail is {{userinfo.email}}</p>
+    <p>I am a {{userprofileinfo.status}}</p>
+    <img src="{% static '{{userprofileinfo.profile_pic}}'%}" alt="None" width="500px">
+  {% else %}
+    <p>{{message}}</p>
+    <p>Don't have an account? <a href="{% url 'login_app:register'%}">register</a></p>
+    <p>Have an account? <a href="{% url 'login_app:login' %}">login</a></p>
+  {% endif %}
+{% endblock %}
