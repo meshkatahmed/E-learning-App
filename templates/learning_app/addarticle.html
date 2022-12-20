@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block titleblock %}Add Article page{% endblock %}
+{% block bodyblock %}
+  <h3>Add an article: </h3>
+  <form method="POST">
+    {{ form|crispy }}
+    {% csrf_token %}
+    <br>
+    <button type="submit" name="submit" class="btn btn-md btn-success">Submit</button>
+  </form>
+{% endblock %}
