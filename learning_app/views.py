@@ -8,14 +8,24 @@ import uuid
 # Create your views here.
 def home(request):
     return HttpResponse('Welcome to homepage')
-class AddArticle(CreateView,LoginRequiredMixin):
+class WriteArticle(LoginRequiredMixin,CreateView):
     model = models.Article
     fields = ['title','content','image']
-    template_name = 'learning_app/addarticle.html'
+    template_name = 'learning_app/writearticle.html'
 
     def form_valid(self,form):
         article_obj = form.save(commit=False)
         article_obj.author = self.request.user
         article_obj.slug = article_obj.title.replace(" ","-") + "-" + str(uuid.uuid4())
         article_obj.save()
+        return HttpResponseRedirect(reverse('home'))
+class ArrangeQuiz(LoginRequiredMixin,CreateView):
+    model = models.Quiz
+    fields = ['question','option1','option2','option3','option4','answer']
+    template_name = 'learning_app/arrangequiz.html'
+
+    def form_valid(self,form):
+        quiz_obj = form.save(commit=False)
+        quiz_obj.user = self.request.user
+        quiz_obj.save()
         return HttpResponseRedirect(reverse('home'))

@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% load static %}
-{% block titleblock %}Add Article page{% endblock %}
+{% block titleblock %}Write Article{% endblock %}
 {% block bodyblock %}
-  <h3>Add an article: </h3>
+  <h3>Write an article: </h3>
   <form method="POST">
     {{ form|crispy }}
     {% csrf_token %}
