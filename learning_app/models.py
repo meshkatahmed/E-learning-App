@@ -15,18 +15,6 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
-class Quiz(models.Model):
-    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='user_quiz')
-    question = models.CharField(max_length=264,verbose_name='Write the question')
-    option1 = models.CharField(max_length=264,null=True)
-    option2 = models.CharField(max_length=264,null=True)
-    option3 = models.CharField(max_length=264,null=True)
-    option4 = models.CharField(max_length=264,null=True)
-    answer = models.CharField(max_length=264,null=True)
-
-    def __str__(self):
-        return self.question
-
 class DiscussionForum(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='user_question')
     question = models.CharField(max_length=264,verbose_name='Write the question')

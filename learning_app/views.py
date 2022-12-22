@@ -19,13 +19,3 @@ class WriteArticle(LoginRequiredMixin,CreateView):
         article_obj.slug = article_obj.title.replace(" ","-") + "-" + str(uuid.uuid4())
         article_obj.save()
         return HttpResponseRedirect(reverse('home'))
-class ArrangeQuiz(LoginRequiredMixin,CreateView):
-    model = models.Quiz
-    fields = ['question','option1','option2','option3','option4','answer']
-    template_name = 'learning_app/arrangequiz.html'
-
-    def form_valid(self,form):
-        quiz_obj = form.save(commit=False)
-        quiz_obj.user = self.request.user
-        quiz_obj.save()
-        return HttpResponseRedirect(reverse('home'))
