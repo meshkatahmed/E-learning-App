@@ -9,7 +9,7 @@ from django.urls import reverse
 from django.shortcuts import render
 # Create your views here.
 def home(request):
-    diction = {'message':'Welcome to homepage'}
+    diction = {'message':'Welcome to login_app homepage'}
     if request.user.is_authenticated:
         current_user = request.user
         user_id = current_user.id

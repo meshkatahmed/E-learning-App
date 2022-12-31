@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 import uuid
 # Create your views here.
 def home(request):
-    return HttpResponse('Welcome to homepage')
+    return HttpResponse('Welcome to learning_app homepage')
 class WriteArticle(LoginRequiredMixin,CreateView):
     model = models.Article
     fields = ['title','content','image']

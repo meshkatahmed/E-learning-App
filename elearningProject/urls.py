@@ -22,4 +22,5 @@ urlpatterns = [
     path('',views.home,name='home'),
     path('accounts/',include('login_app.urls')),
     path('learning/',include('learning_app.urls')),
+    path('quiz/',include('quiz_app.urls')),
 ]
