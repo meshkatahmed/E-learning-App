@@ -5,7 +5,9 @@ import random
 # Create your views here.
 
 def home(request):
-    return HttpResponse('Welcome to quiz_app homepage')
+    diction = {'categories':Category.objects.all()}
+    return render(request,'quiz_app/arrangequiz.html',context=diction)
+    #return HttpResponse('Welcome to quiz_app homepage')
 
 def get_quiz(request):
     question_objs = list(Question.objects.all())

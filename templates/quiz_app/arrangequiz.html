@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block titleblock %}Make Quiz{% endblock %}
+{% block bodyblock %}
+  <h3>Make a quiz: </h3>
+  <br>
+  <div class="container">
+    <div class="form-group">
+      <label>Select category:</label>
+      <select class="form-control">
+        <option value="Choose">Choose</option>
+        {% for category in categories %}
+          <option value="{{categroy.name}}">{{categroy.name}}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+
+{% endblock %}
