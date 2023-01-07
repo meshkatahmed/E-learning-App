@@ -4,16 +4,30 @@
 {% block bodyblock %}
   <h3>Make a quiz: </h3>
   <br>
-  <div class="container">
-    <div class="form-group">
-      <label>Select category:</label>
-      <select class="form-control">
-        <option value="Choose">Choose</option>
-        {% for category in categories %}
-          <option value="{{categroy.name}}">{{categroy.name}}</option>
-        {% endfor %}
-      </select>
-    </div>
-  </div>
-
+  <form class="" method="POST">
+    <h5>Select category: </h5>
+    <select class="form-control mb-3">
+      <option value="Choose">Choose</option>
+      {% for category in categories %}
+        <option value="{{category.name}}">{{category.name}}</option>
+      {% endfor %}
+    </select>
+    <button type="submit" class="btn btn-md btn-primary">Submit</button>
+  </form>
 {% endblock %}
+
+<!-- <div class="container"> -->
+  <!-- <div class="form-group"> -->
+    <!-- <form> -->
+      <!-- <label>Select category:</label> -->
+      <!-- <br> -->
+      <!-- <select class="form-control" > -->
+        <!-- <option value="Choose">Choose</option> -->
+          <!-- {% for category in categories %} -->
+            <!-- <option value="{{categroy.name}}">{{categroy.name}}</option> -->
+          <!-- {% endfor %} -->
+      <!-- </select> -->
+      <!-- <br> -->
+      <!-- <button type="submit" class="btn btn-md btn-primary">Submit</button> -->
+    <!-- </form> -->
+  <!-- </div> -->
