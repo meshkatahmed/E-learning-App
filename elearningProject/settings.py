@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'learning_app',
     'quiz_app',
     'crispy_forms',
+    'django_extensions',
 ]
 
 #bootstrap,bootstrap3,bootstrap4,uni-form
