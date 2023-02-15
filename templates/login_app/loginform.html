@@ -3,8 +3,8 @@
 {% block titleblock%}Login Form{% endblock %}
 {% block bodyblock %}
   <form method="POST">
-    {{form|crispy}}
     {% csrf_token %}
+    {{form|crispy}}
     <br>
     <button type="submit" name="subnmit" class="btn btn-md btn-success">Login</button>
   </form>

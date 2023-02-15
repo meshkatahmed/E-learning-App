@@ -6,8 +6,7 @@
     <p>Hi! I'm {{userinfo.username}}</p>
     <p>My name is {{userinfo.first_name}} {{userinfo.last_name}}</p>
     <p>My e-mail is {{userinfo.email}}</p>
-    <p>I am a {{userprofileinfo.status}}</p>
-    <img src="{% static '{{userprofileinfo.profile_pic}}'%}" alt="None" width="500px">
+    <img src="/media/{{userprofileinfo.profile_pic}}">
   {% else %}
     <p>{{message}}</p>
     <p>Don't have an account? <a href="{% url 'login_app:register'%}">register</a></p>

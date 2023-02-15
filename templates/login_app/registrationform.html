@@ -8,9 +8,9 @@
     <p>Log in <a href="{% url 'login_app:login' %}">here</a></p>
   {% else %}
     <form enctype='multipart/form-data' method="POST">
+      {% csrf_token %}
       {{userform|crispy}}
       {{userprofileform|crispy}}
-      {% csrf_token %}
       <br>
       <button type="submit" name="submit" class="btn btn-md btn-success">Register</button>
     </form>
