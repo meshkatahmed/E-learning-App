@@ -5,5 +5,5 @@ app_name = 'learning_app'
 
 urlpatterns = [
     path('',views.home,name='home'),
-    path('writearticle/',views.WriteArticle.as_view(),name='writearticle'),
+    path('writearticle/',views.write_article,name='writearticle'),
 ]

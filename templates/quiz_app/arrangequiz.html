@@ -4,7 +4,7 @@
 {% block bodyblock %}
   <h3>Make a quiz: </h3>
   <br>
-  <form action="/quiz/getquiz" method="GET">
+  <form action="/quiz/getquiz/" method="GET">
     <h5>Select category: </h5>
     <select name="category" class="form-control mb-3">
       <option value="Choose">Choose</option>
@@ -15,3 +15,5 @@
     <button type="submit" class="btn btn-md btn-success mt-3">Submit</button>
   </form>
 {% endblock %}
+
+#
