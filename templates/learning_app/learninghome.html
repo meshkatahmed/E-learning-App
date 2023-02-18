@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load customfilters %}
+{% block title_block %}Articles{% endblock %}
+{% block body_block %}
+  {% for article in articles %}
+    <h3>{{article.title}}</h3>
+    <h6><i>{{article.publish_date}}</i></h6>
+    <div class="row">
+      <p>{{article.content|range_filter|linebreaks}}<a href="{% url 'learning_app:articledetail' slug=article.slug %}">Read more</a></p>
+      <h6>Posted by: {{article.author}}</h6>
+    </div>
+  {% endfor %}
+{% endblock %}

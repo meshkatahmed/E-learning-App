@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block titleblock %}Homepage{% endblock %}
-{% block bodyblock %}
+{% block title_block %}Homepage{% endblock %}
+{% block body_block %}
   {% if user.is_authenticated %}
     <p>Hi! I'm {{userinfo.username}}</p>
     <p>My name is {{userinfo.first_name}} {{userinfo.last_name}}</p>

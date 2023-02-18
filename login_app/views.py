@@ -45,7 +45,7 @@ def user_login(request):
             user = authenticate(username=username,password=password)
             if user:
                 login(request,user)
-                return HttpResponseRedirect(reverse('login_app:home'))
+                return HttpResponseRedirect(reverse('learning_app:articles'))
     return render(request,'login_app/loginform.html',context={'form':form})
 @login_required
 def user_logout(request):

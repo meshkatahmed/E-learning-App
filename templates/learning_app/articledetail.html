@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title_block %}Article Detail{% endblock %}
+{% block body_block %}
+  <h1 align="middle">{{article.title}}</h1>
+  <h4 align="middle"><i>{{article.publish_date}}</i></h4>
+  <p>{{article.content|linebreaks}}</p>
+{% endblock %}

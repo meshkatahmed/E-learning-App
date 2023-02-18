@@ -24,25 +24,9 @@ def get_quiz(request):
         random.shuffle(questions)
         for question in questions:
             data.append({'question':question.asking,'answers':question.get_answers(),'marks':question.marks})
+            print(data)
             diction = {'data':data}
-            return render(request,'quiz_app/getquiz.html',context=diction)
+        return render(request,'quiz_app/getquiz.html',context=diction)
     else:
         messages.info(request,'Please select a category')
         return redirect('quiz_app:home')
-
-
-
-
-
-    #question_objs = Question.objects.all()
-    #if request.GET.get('category'):
-    #    question_objs = question_objs.filter(category__name__icontains=request.GET.get('category'))
-    #question_objs = list(question_objs)
-    #data = []
-    #random.shuffle(question_objs)
-    #for question_obj in question_objs:
-    #    data.append({'category':question_obj.category.name,
-    #    'question':question_obj.asking,'marks':question_obj.marks,
-    #    'answers':question_obj.get_answers()})
-    #payload = {'status':True,'data':data}
-    #return JsonResponse(payload)

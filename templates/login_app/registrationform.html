@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% load static %}
-{% block titleblock %}Registration Form{% endblock %}
-{% block bodyblock %}
+{% block title_block %}Registration Form{% endblock %}
+{% block body_block %}
   {% if registered %}
     <h2>Congratulations! registered successfully.</h2>
     <p>Log in <a href="{% url 'login_app:login' %}">here</a></p>
