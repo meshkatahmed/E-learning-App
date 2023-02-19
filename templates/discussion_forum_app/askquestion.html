@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title_block %}Ask a question{% endblock %}
+{% block body_block %}
+  <form method="POST">
+    {% csrf_token %}
+    {{form|crispy}}
+    <br>
+    <button type="submit" name="submit" class="btn btn-lg btn-dark">Ask</button>
+  </form>
+{% endblock %}

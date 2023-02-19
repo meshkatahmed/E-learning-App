@@ -22,8 +22,7 @@ class ArticleDetail(LoginRequiredMixin,DetailView):
 
 @login_required
 def write_article(request):
-    teaches = request.user.user_profile.is_teacher
-    if teaches:
+    if request.user.user_profile.is_teacher:
         form = ArticleForm
 
         if request.method=='POST':
@@ -32,9 +31,9 @@ def write_article(request):
             form_saved.author = request.user
             form_saved.slug = form_saved.title.replace(" ","-")+"-"+str(uuid.uuid4())
             form_saved.save()
-            return redirect('learning_app:home')
+            return redirect('learning_app:articles')
         diction = {'form':form}
         return render(request,'learning_app/writearticle.html',context=diction)
     else:
         messages.info(request,'A non-techer account cannot write article')
-        return redirect('learning_app:home')
+        return redirect('learning_app:articles')

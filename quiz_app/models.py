@@ -6,12 +6,15 @@ class Category(models.Model):
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
 
+    class Meta:
+        verbose_name_plural = 'Categories'
+        
     def __str__(self):
         return self.name
 
 class Question(models.Model):
     category = models.ForeignKey(Category,on_delete=models.CASCADE,related_name='category')
-    asking = models.CharField(max_length=265)
+    asking = models.CharField(max_length=264)
     marks = models.IntegerField(default=5)
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)

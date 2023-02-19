@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title_block %}Answer a question{% endblock %}
+{% block body_block %}
+  <h2 class="text-primary"><i>{{question.created_at}}</i></h2><p>{{question.asking}}</p>
+  <h2>Asked by: {{question.user.first_name}} {{question.user.last_name}}</h2>
+  <a href="{% url 'discussion_forum_app:answerquestion' pk=question.id %}">Answer this question</a></p>
+  {% if to_answer %}
+    <form method="POST">
+      {% csrf_token %}
+      {{form|crispy}}
+      <br>
+      <button type="submit" name="submit" class="btn btn-md btn-success">Submit</button>
+    </form>
+  {% endif %}
+  {% for answer in answers %}
+    <h2 class="text-primary"><i>{{answer.created_at}}</i></h2><p>{{answer.statement|linebreaks}}</p>
+    <h2>Answered by: {{answer.user.first_name}} {{answer.user.last_name}}</h2>
+  {% endfor %}
+
+{% endblock %}

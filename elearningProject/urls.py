@@ -26,6 +26,7 @@ urlpatterns = [
     path('accounts/',include('login_app.urls')),
     path('learning/',include('learning_app.urls')),
     path('quiz/',include('quiz_app.urls')),
+    path('discussion/',include('discussion_forum_app.urls')),
 ]
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

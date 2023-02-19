@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title_block%}Discussion Forum{% endblock %}
+{% block body_block %}
+  {% for question in questions %}
+    <p>{{question.asking}}  <a href="{% url 'discussion_forum_app:answeraquestion' pk=question.id %}">answers</a></p>
+  {% endfor %}
+  <br>
+  <p>Have a query? <a href="{% url 'discussion_forum_app:askquestion' %}">Ask here</a></p>
+{% endblock %}

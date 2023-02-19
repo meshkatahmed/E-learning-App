@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'login_app',
     'learning_app',
     'quiz_app',
+    'discussion_forum_app',
     'crispy_forms',
     'django_extensions',
 ]
