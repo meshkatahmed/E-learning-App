@@ -2,6 +2,9 @@
 {% load customfilters %}
 {% block title_block %}Articles{% endblock %}
 {% block body_block %}
+  {% if request.user.user_profile.is_teacher %}
+    <h5 class="my-5">Have some thoughts? <a href="{% url 'learning_app:writearticle' %}">Write here</a></h5>
+  {% endif %}
   {% for article in articles %}
     <h3>{{article.title}}</h3>
     <h6><i>{{article.publish_date}}</i></h6>

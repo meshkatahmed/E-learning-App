@@ -4,7 +4,11 @@
 {% block body_block %}
   <h2 class="text-primary"><i>{{question.created_at}}</i></h2><p>{{question.asking}}</p>
   <h2>Asked by: {{question.user.first_name}} {{question.user.last_name}}</h2>
-  <a href="{% url 'discussion_forum_app:answerquestion' pk=question.id %}">Answer this question</a></p>
+  {% if not to_answer %}
+    {% if request.user.user_profile.is_teacher %}
+      <a href="{% url 'discussion_forum_app:answerquestion' pk=question.id %}">Answer this question</a></p>
+    {% endif %}
+  {% endif %}
   {% if to_answer %}
     <form method="POST">
       {% csrf_token %}

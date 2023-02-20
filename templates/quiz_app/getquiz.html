@@ -5,11 +5,18 @@
     <title>Quiz</title>
   </head>
   <body>
-    {% for i in data %}
-      <p>{{forloop.counter}}. {{i.question}} {{i.marks}}</p>
-      {% for j in i.answers %}
-        <input type="radio" name="answer" value="{{j.answer}}">{{j.answer}}<br>
+    <form action="/quiz/evaluatequiz/" method="POST">
+      {% for i in data %}
+        <p>{{forloop.counter}}. {{i.question}} {{i.marks}}</p>
+        <select name="question{{forloop.counter}}">
+          {% for j in i.answers %}
+            <option for="question{{forloop.parentloop.counter}}" value="{{j.answer}}">{{j.answer}}</option><br>
+          {% endfor %}
+        </select>
+        <br>
       {% endfor %}
-    {% endfor %}
+      <br>
+      <button type="submit" name="submit" class="btn btn-md btn-success">Submit</button>
+    </form>
   </body>
 </html>

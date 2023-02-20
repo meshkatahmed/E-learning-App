@@ -5,8 +5,8 @@ from .models import *
 import random
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-# Create your views here.
 
+# Create your views here.
 @login_required
 def home(request):
     if not request.user.user_profile.is_teacher:
@@ -15,6 +15,7 @@ def home(request):
     diction = {'categories':Category.objects.all()}
     return render(request,'quiz_app/arrangequiz.html',context=diction)
 
+@login_required
 def get_quiz(request):
     if request.method=='GET':
         categories = Category.objects.filter(name=request.GET['category'])
@@ -24,9 +25,12 @@ def get_quiz(request):
         random.shuffle(questions)
         for question in questions:
             data.append({'question':question.asking,'answers':question.get_answers(),'marks':question.marks})
-            print(data)
             diction = {'data':data}
         return render(request,'quiz_app/getquiz.html',context=diction)
     else:
         messages.info(request,'Please select a category')
         return redirect('quiz_app:home')
+
+@login_required
+def evaluate_quiz(request):
+    pass

@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 {% block title_block%}Discussion Forum{% endblock %}
 {% block body_block %}
+  {% if request.user.is_authenticated %}
+    {% if not request.user.user_profile.is_teacher %}
+      <h5 class="my-5">Have a query? <a href="{% url 'discussion_forum_app:askquestion' %}">Ask here</a></h5>
+    {% endif %}
+  {% endif %}
   {% for question in questions %}
     <p>{{question.asking}}  <a href="{% url 'discussion_forum_app:answeraquestion' pk=question.id %}">answers</a></p>
   {% endfor %}
-  <br>
-  <p>Have a query? <a href="{% url 'discussion_forum_app:askquestion' %}">Ask here</a></p>
 {% endblock %}
