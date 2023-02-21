@@ -17,6 +17,7 @@
       <button type="submit" name="submit" class="btn btn-md btn-success">Submit</button>
     </form>
   {% endif %}
+  <br>
   {% for answer in answers %}
     <h2 class="text-primary"><i>{{answer.created_at}}</i></h2><p>{{answer.statement|linebreaks}}</p>
     <h2>Answered by: {{answer.user.first_name}} {{answer.user.last_name}}</h2>

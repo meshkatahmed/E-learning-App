@@ -5,14 +5,12 @@
     <title>Quiz</title>
   </head>
   <body>
-    <form action="/quiz/evaluatequiz/" method="POST">
+    <form action="{% url 'quiz_app:evaluatequiz' %}" method="POST">
       {% for i in data %}
-        <p>{{forloop.counter}}. {{i.question}} {{i.marks}}</p>
-        <select name="question{{forloop.counter}}">
+        <p id="{{forloop.counter}}">{{forloop.counter}}. {{i.question}} {{i.marks}}</p>
           {% for j in i.answers %}
-            <option for="question{{forloop.parentloop.counter}}" value="{{j.answer}}">{{j.answer}}</option><br>
+            <input type="radio" name="{{forloop.parentloop.counter}}" value="{{j.answer}}">{{j.answer}}<br>
           {% endfor %}
-        </select>
         <br>
       {% endfor %}
       <br>
